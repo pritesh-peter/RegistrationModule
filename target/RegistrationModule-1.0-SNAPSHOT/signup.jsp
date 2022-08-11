@@ -11,7 +11,7 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     </head>
-    <body>
+    <body style="background: url(img/laptopimg.jpg);background-size: cover;background-attachment: fixed;">
         <div class="container">
             <div class="row">
                 <div class="col m6 offset-m3">
