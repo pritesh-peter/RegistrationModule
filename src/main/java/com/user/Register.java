@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
+
 package com.user;
 
 import java.io.IOException;
@@ -17,10 +14,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Pritesh Singh
- */
 public class Register extends HttpServlet {
 
 
@@ -53,7 +46,7 @@ public class Register extends HttpServlet {
                 PreparedStatement pstmt = con.prepareStatement(q);
                 pstmt.setString(1,name);
                 pstmt.setString(2,password);
-                pstmt.setString(3, email);
+                pstmt.setString(3,email);
                 
                 pstmt.executeUpdate();
                 
