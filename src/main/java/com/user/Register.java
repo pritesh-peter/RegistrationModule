@@ -18,7 +18,7 @@ public class Register extends HttpServlet {
 
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException {
+            throws ServletException, IOException, SQLException, InstantiationException {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
@@ -28,7 +28,7 @@ public class Register extends HttpServlet {
             out.println("<title>Servlet Register</title>");            
             out.println("</head>");
             out.println("<body>");
-//getting all the incoming detail from  reguest
+        //getting all the incoming detail from  reguest
         
             String name = request.getParameter("user_name");
             String email = request.getParameter("user_email");
@@ -36,7 +36,7 @@ public class Register extends HttpServlet {
             
             //connection..............
             try{
-                Class.forName("com.mysql.jdbc.Driver");
+                Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
                 
                 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/trn","root","Password1");
             
@@ -54,6 +54,8 @@ public class Register extends HttpServlet {
                 
             }catch (ClassNotFoundException e) {
                 out.println(e.getMessage());
+            } catch (IllegalAccessException ex) {
+                Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
             }
 
 
@@ -83,6 +85,8 @@ public class Register extends HttpServlet {
             processRequest(request, response);
         } catch (SQLException ex) {
             Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -100,6 +104,8 @@ public class Register extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
+            Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
             Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
