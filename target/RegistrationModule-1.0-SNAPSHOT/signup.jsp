@@ -22,7 +22,7 @@
 
                             <div class="form center-align">
                                 <!--//creating form-->
-                                <form action="register" method="post">
+                                <form action="register" method="post" id="signupform">
 
                                     <input type="text" name="user_name" placeholder="Enter your name">
                                     <input type="password" name="user_password" placeholder="Enter your Password">
@@ -74,7 +74,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                    <h5>Please wait...</h5>
+                                <h5>Please wait...</h5>
 
                             </div>
                         </div>
@@ -83,17 +83,49 @@
                 </div>
             </div>
         </div>
+
         <script  
             src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-  crossorigin="anonymous"></script>
-  
-  <script>
-      $(document).ready(function () {
-          
-          console.log("Page is ready.....")
-      })
-      
-  </script>
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"></script>
+
+        <script>
+            $(document).ready(function () {
+
+                console.log("Page is ready.....");
+
+
+                $("#signupform").on('submit', function (event) {
+
+                    event.preventDefault();
+
+                    var f = $(this).serialize();
+
+                    console.log(f);
+
+                    $(".loader").show();
+                    $(".form").hide();
+
+                    $.ajax({
+                        url: "register",
+                        data: f,
+                        type: 'POST',
+                        success: function (data, textStatus, jqXHR) {
+                            $(".loader").hide();
+                            $(".form").show();
+                            console.log(data);
+                            console.log("success.........");
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            $(".loader").hide();
+                            $(".form").show();
+                            console.log(data);
+                            console.log("error.........");
+                        }
+                    });
+                });
+            });
+
+        </script>
     </body>
 </html>

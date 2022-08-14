@@ -36,6 +36,9 @@ public class Register extends HttpServlet {
             
             //connection..............
             try{
+                
+                Thread.sleep(3000);
+                
                 Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
                 
                 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/trn","root","Password1");
@@ -55,6 +58,8 @@ public class Register extends HttpServlet {
             }catch (ClassNotFoundException e) {
                 out.println(e.getMessage());
             } catch (IllegalAccessException ex) {
+                Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InterruptedException ex) {
                 Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
             }
 
