@@ -22,12 +22,7 @@ public class Register extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Register</title>");            
-            out.println("</head>");
-            out.println("<body>");
+            
         //getting all the incoming detail from  reguest
         
             String name = request.getParameter("user_name");
@@ -37,7 +32,7 @@ public class Register extends HttpServlet {
             //connection..............
             try{
                 
-                Thread.sleep(3000);
+                Thread.sleep(1000);
                 
                 Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
                 
@@ -53,7 +48,7 @@ public class Register extends HttpServlet {
                 
                 pstmt.executeUpdate();
                 
-                out.println("<h1>Registered Sccessfully</h1>");
+                out.println("registered");
                 
             }catch (ClassNotFoundException e) {
                 out.println(e.getMessage());
@@ -67,10 +62,6 @@ public class Register extends HttpServlet {
 
           
           //................
-            
-
-            out.println("</body>");
-            out.println("</html>");
         }
     }
 

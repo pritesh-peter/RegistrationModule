@@ -19,7 +19,7 @@
                     <div class="card">
                         <div class="card-content">
                             <h3 style="margin-top: 10px;" class="center-align">Register Here</h3>
-
+                            <h5 id="rsuccess" class="center-align"></h5>
                             <div class="form center-align">
                                 <!--//creating form-->
                                 <form action="register" method="post" id="signupform">
@@ -115,12 +115,22 @@
                             $(".form").show();
                             console.log(data);
                             console.log("success.........");
+                            if (data.trim() === 'registered') {
+           
+                                $("#rsuccess").html("Registered");
+                                $("#rsuccess").addClass('green-text');
+                            } else {
+                                $("#rsuccess").html("Something went Wrong");
+                                $("#rsuccess").addClass('red-text');
+                            }
                         },
                         error: function (jqXHR, textStatus, errorThrown) {
                             $(".loader").hide();
                             $(".form").show();
                             console.log(data);
                             console.log("error.........");
+                              $("#rsuccess").html("Something went Wrong");
+                                $("#rsuccess").addClass('red-text');
                         }
                     });
                 });
