@@ -31,7 +31,7 @@
                                     <div class="file-field input-field">
                                         <div class="btn blue">
                                             <span>File</span>
-                                            <input type="file">
+                                            <input name="user_image" type="file">
                                         </div>
                                         <div class="file-path-wrapper">
                                             <input class="file-path validate" type="text">
@@ -108,8 +108,11 @@
 
                     event.preventDefault();
 
-                    var f = $(this).serialize();
+//                    var f = $(this).serialize();
 
+                    let f = new FormData(this);
+                     
+                    console.log("+++++f ko data+++++"); 
                     console.log(f);
 
                     $(".loader").show();
@@ -122,6 +125,7 @@
                         success: function (data, textStatus, jqXHR) {
                             $(".loader").hide();
                             $(".form").show();
+                            console.log("+++++datachecking+++++");
                             console.log(data);
                             console.log("success.........");
                             if (data.trim() === 'registered') {
@@ -131,7 +135,7 @@
                             } else {
                                 $("#rsuccess").html("Something went Wrong");
                                 $("#rsuccess").addClass('red-text');
-                                $("")
+                                
                             }
                         },
                         error: function (jqXHR, textStatus, errorThrown) {
@@ -141,7 +145,9 @@
                             console.log("error.........");
                             $("#rsuccess").html("Something went Wrong");
                             $("#rsuccess").addClass('red-text');
-                        }
+                        },
+                        processData:false,
+                        contentType:false
                     });
                 });
             });
