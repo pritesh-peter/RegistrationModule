@@ -28,7 +28,16 @@
                                     <input type="password" name="user_password" placeholder="Enter your Password">
                                     <input type="email" name="user_email" placeholder="Enter your Email">
 
-                                    <button type="submit" class="btn">Register</button>
+                                    <div class="file-field input-field">
+                                        <div class="btn blue">
+                                            <span>File</span>
+                                            <input type="file">
+                                        </div>
+                                        <div class="file-path-wrapper">
+                                            <input class="file-path validate" type="text">
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn blue">Register</button>
                                 </form>
 
                             </div>
@@ -116,12 +125,13 @@
                             console.log(data);
                             console.log("success.........");
                             if (data.trim() === 'registered') {
-           
+
                                 $("#rsuccess").html("Registered");
                                 $("#rsuccess").addClass('green-text');
                             } else {
                                 $("#rsuccess").html("Something went Wrong");
                                 $("#rsuccess").addClass('red-text');
+                                $("")
                             }
                         },
                         error: function (jqXHR, textStatus, errorThrown) {
@@ -129,8 +139,8 @@
                             $(".form").show();
                             console.log(data);
                             console.log("error.........");
-                              $("#rsuccess").html("Something went Wrong");
-                                $("#rsuccess").addClass('red-text');
+                            $("#rsuccess").html("Something went Wrong");
+                            $("#rsuccess").addClass('red-text');
                         }
                     });
                 });
