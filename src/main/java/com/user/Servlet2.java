@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Pritesh Singh
  */
-public class Servlet1 extends HttpServlet {
+public class Servlet2 extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,13 +34,12 @@ public class Servlet1 extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Servlet1</title>");            
+            out.println("<title>Servlet Servlet2</title>");            
             out.println("</head>");
             out.println("<body>");
-            String name = request.getParameter("user_name");
-            out.println("<h2>Welcome "+name+"</h2>");
+            String name = request.getParameter("name");
             
-            out.println("<a href='servlet2?name="+name+"'>Goto second servlet</a>");
+            out.println("<h2>Welcome Again "+name+"</h2>");
             out.println("</body>");
             out.println("</html>");
         }
