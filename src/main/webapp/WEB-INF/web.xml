@@ -4,9 +4,17 @@
         <servlet-name>Register</servlet-name>
         <servlet-class>com.user.Register</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Servlet1</servlet-name>
+        <servlet-class>com.user.Servlet1</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Register</servlet-name>
         <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Servlet1</servlet-name>
+        <url-pattern>/servlet1</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
